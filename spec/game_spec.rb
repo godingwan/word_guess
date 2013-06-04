@@ -1,5 +1,3 @@
-require 'pry'
-
 require_relative '../lib/game'
 require_relative '../lib/player'
 
@@ -15,9 +13,9 @@ describe Game do
   end
 end
 
-# describe Player do
-#   it 'gets the name from the player' do
-#     test_player = Player.new
-#     expect(test_player.name('John')).to eql("John")
-#   end
-# end
+describe Player do
+  it 'gets the name from the player' do
+    test_player = Player.new
+    expect(test_player.player_name('John')).to eql("John")
+  end
+end
