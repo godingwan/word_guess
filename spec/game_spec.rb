@@ -4,22 +4,20 @@ require_relative '../lib/game'
 require_relative '../lib/player'
 
 describe Game do
-  it 'checks that a number is passed for players' do
+  it 'checks for how many players' do
     test_game = Game.new
-    total_players = test_game.players(5)
-    expect(total_players).to eql(5)
+    expect(test_game.number_of_players(3)).to eql(3)
   end
 
-  it 'checks that error is raise if players are more than 5' do
+  it 'returns an error when the number of players are more than 5' do
     test_game = Game.new
-    expect { test_game.players(6) }.to raise_error(RangeError, "Players cannot be more than 5.")
+    expect{test_game.number_of_players(6)}.to raise_error
   end
 end
 
-describe Player do
-  it 'gets the name of the player' do
-    player = Player.new
-    player_name = player.get_name('John')
-    expect(player_name).to eql('John')
-  end
-end
+# describe Player do
+#   it 'gets the name from the player' do
+#     test_player = Player.new
+#     expect(test_player.name('John')).to eql("John")
+#   end
+# end

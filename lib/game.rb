@@ -1,12 +1,9 @@
-require_relative 'hangman'
-
 class Game
-
-  def players(number_of_players)
-    if number_of_players > 5
-      raise RangeError, "Players cannot be more than 5."
+  def number_of_players(number)
+    if number > 5
+      raise "There can only be a max of 5 players."
     else
-      return number_of_players
+      return number
     end
   end
 end

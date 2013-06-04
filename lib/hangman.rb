@@ -1,29 +1,18 @@
 require_relative 'game'
 require_relative 'player'
+require_relative 'runner'
 
 class Hangman
-  def get_number_of_players
-    game = Game.new
-    puts 'How many players are there?'
-    reply = gets.chomp.to_i
-    total_players = game.players(reply)
-    return total_players
+  def initialize
+    @game = Game.new
+    @player = Player.new
+    @runner = Runner.new
   end
 
-  def add_players_to_an_array(number)
-    player_hash = Hash.new
-    counter = 1
-    number.times do
-      player = Player.new
-      puts "What is player #{counter}'s name?"
-      player_name = gets.chomp
-      player_has << player_name
-      counter += 1
-    end
-    return player_hash
+  def total_players
+    total_players = @game.number_of_players(@runner.get_total_number_of_players)
   end
 end
 
-game = Hangman.new
-game_players = game.get_number_of_players
-puts game.add_players_to_an_array(game_players)
+hangman = Hangman.new
+puts hangman.total_players
