@@ -1,4 +1,6 @@
 require_relative '../lib/game_setup'
+require_relative '../lib/players'
+
 require 'pry'
 
 describe GameSetup do
@@ -31,3 +33,11 @@ describe GameSetup do
   end
 end
 
+describe Players do
+  it 'randomizes the array' do
+    input_array = ['John', 'Sam', 'Sarah', 'Peter', 'Clark']
+    players_array = Players.new(input_array)
+    new_array = players_array.randomize
+    expect(new_array).to not_eql(input_array)
+  end
+end
