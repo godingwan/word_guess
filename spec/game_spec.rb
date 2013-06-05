@@ -1,5 +1,6 @@
 require_relative '../lib/game_setup'
 require_relative '../lib/players'
+require_relative '../lib/game'
 
 require 'pry'
 
@@ -33,11 +34,10 @@ describe GameSetup do
   end
 end
 
-describe Players do
-  it 'randomizes the array' do
-    input_array = ['John', 'Sam', 'Sarah', 'Peter', 'Clark']
-    players_array = Players.new(input_array)
-    new_array = players_array.randomize
-    expect(new_array).to not_eql(input_array)
+describe Game do
+  it 'presents a list of blanks for a given word' do
+    test_game = Game.new('hello')
+    blank_word = test_game.blankify
+    expect(blank_word).to eql(['_ ','_ ', '_ ', '_ ', '_ '])
   end
 end
