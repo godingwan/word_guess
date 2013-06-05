@@ -2,11 +2,23 @@ require 'pry'
 
 require_relative 'game_setup'
 
-puts "How many players do you want?"
+intro_text = "How many players? Min: 1, Max: 5"
+
+puts intro_text
 
 player_count = gets.chomp
 
 setup = GameSetup.new(player_count)
+num_players = setup.num_players
+players_bool = setup.check_number_of_players(num_players)
+while players_bool == false
+  puts "There can only be 1 to 5 players."
+  puts intro_text
+  player_count = gets.chomp
+  setup = GameSetup.new(player_count)
+  num_players = setup.num_players
+  players_bool = setup.check_number_of_players(num_players)
+end
 
 setup.num_players.times do |i|
 

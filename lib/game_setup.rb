@@ -10,6 +10,12 @@ class GameSetup
     @number_of_players.to_i
   end
 
+  def check_number_of_players(number)
+    if number > 5 || number < 1
+      return false
+    end
+  end
+
   def put_name_in_array(name)
     @player_array << name
   end

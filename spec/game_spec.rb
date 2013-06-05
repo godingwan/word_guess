@@ -1,5 +1,3 @@
-require_relative '../lib/game'
-require_relative '../lib/player'
 require_relative '../lib/game_setup'
 require 'pry'
 
@@ -10,7 +8,12 @@ describe GameSetup do
     expect(number_of_players).to eql(3)
   end
 
-  it 'returns an error when the number of players are more than 5'
+  it 'creates a new instance of game when the number of players are more than 5' do
+    test_game = GameSetup.new(6)
+    num_players = test_game.num_players
+    bool = test_game.check_number_of_players(num_players)
+    expect(bool). to eql(false)
+  end
 
   it 'adds names to an array' do
     test_game = GameSetup.new(3)
