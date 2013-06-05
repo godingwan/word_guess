@@ -1,3 +1,5 @@
+require 'pry'
+
 class Game
   attr_accessor :blank_array, :answer_array
 
@@ -22,14 +24,21 @@ class Game
   end
 
   def letter_guess(letter)
-    answer = @answer_array
     guess = letter.to_s + ' '
-    answer.each do |char|
+    return_value = false
+    counter = 0
+    @answer_array.each do |char|
       if char == guess
-        return true
-      else
-        return false
+        array_position = counter
+        @blank_array[array_position] = guess
+        return_value = true
       end
+      counter += 1
     end
+    return_value
+  end
+
+  def word_so_far_array
+    return @blank_array
   end
 end
