@@ -40,4 +40,20 @@ describe Game do
     blank_word = test_game.blankify
     expect(blank_word).to eql(['_ ','_ ', '_ ', '_ ', '_ '])
   end
+
+  it 'returns true if submitted letter matches' do
+    test_game = Game.new('hello')
+    blank_word = test_game.blankify
+    answer = test_game.answer
+    guess_bool = test_game.letter_guess('h')
+    expect(guess_bool).to eql(true)
+  end
+
+  it 'returns false if submitted letter does not match' do
+    test_game = Game.new('hello')
+    blank_word = test_game.blankify
+    answer = test_game.answer
+    guess_bool = test_game.letter_guess('a')
+    expect(guess_bool).to eql(false)
+  end
 end
