@@ -90,4 +90,11 @@ describe Game do
     correct_bool = test_game.word_guess('hello')
     expect(correct_bool).to eql(true)
   end
+
+  it 'checks if letter guess has already been guessed' do
+    test_game = Game.new('hello')
+    test_game.add_letter_to_array('a')
+    already_guessed_bool = test_game.check_repeat?('a')
+    expect(already_guessed_bool).to eql(true)
+  end
 end
