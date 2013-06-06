@@ -1,5 +1,3 @@
-require 'pry'
-
 class Game
   attr_accessor :blank_array, :answer_array
 
@@ -40,5 +38,25 @@ class Game
 
   def word_so_far_array
     return @blank_array
+  end
+
+  def word_guess(player_guess)
+    guess_array = Array.new
+    player_guess.each_char do |char|
+      guess_array << "#{char} "
+    end
+    if guess_array == @answer_array
+      return true
+    else
+      return false
+    end
+  end
+
+  def input_validation?(input)
+    if input.length == 1
+      return true
+    else
+      return false
+    end
   end
 end

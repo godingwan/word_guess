@@ -74,4 +74,20 @@ describe Game do
     word_so_far = test_game.word_so_far_array
     expect(word_so_far).to eql(['_ ','_ ', 'l ', 'l ', '_ '])
   end
+
+  it 'returns false if the input given is not a letter' do
+    test_game = Game.new('hello')
+    blank_word = test_game.blankify
+    answer = test_game.answer
+    input_valid_bool = test_game.input_validation?('MyString')
+    expect(input_valid_bool).to eql(false)
+  end
+
+  it 'returns true if guessed word is correct' do
+    test_game = Game.new('hello')
+    blank_word = test_game.blankify
+    answer = test_game.answer
+    correct_bool = test_game.word_guess('hello')
+    expect(correct_bool).to eql(true)
+  end
 end

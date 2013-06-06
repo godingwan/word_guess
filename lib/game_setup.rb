@@ -1,5 +1,3 @@
-require 'pry'
-
 class GameSetup
   attr_accessor :players_array
 

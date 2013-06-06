@@ -4,6 +4,6 @@ class Players
   end
 
   def randomize
-    players_array = @players_array.shuffle
+    random_player = @players_array.sample
   end
 end
